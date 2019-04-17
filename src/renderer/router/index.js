@@ -118,6 +118,15 @@ export const constantRouterMap = [
         title: '已注销查询',
         icon: 'search'
       }
+    },{
+      path: 'disposition',
+      name: 'disposition',
+      component: () =>
+        import('@/views/disposition/index'),
+      meta: {
+        title: '已处置查询',
+        icon: 'search'
+      }
     }
     ]
   },

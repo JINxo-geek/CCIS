@@ -56,14 +56,11 @@ import login from '@/assets/login.jpg'
 import loginlogo from '@/assets/loginlogo.png'
 export default {
   mounted() {
-  if (localStorage.getItem("ip") != null) {
-	  console.log("ip已存在");
-	           
-			}else{
-        
-				this.outerVisible = true;
-			}
-    
+    if (localStorage.getItem('ip') != null) {
+	  console.log('ip已存在')
+    } else {
+      this.outerVisible = true
+    }
   },
   name: 'login',
   data() {
@@ -82,8 +79,8 @@ export default {
       }
     } */
     return {
-      outerVisible:false,
-      ipvalue:'',
+      outerVisible: false,
+      ipvalue: '',
       login,
       loginlogo,
       loginForm: {
@@ -99,14 +96,14 @@ export default {
     }
   },
   methods: {
-    changeip(){
-      console.log("改变服务ip",this.ipvalue);
-       localStorage.ip="http://"+this.ipvalue;
-       this.outerVisible = false;
-       this.$message({
-            type: 'success',
-            message: '服务器ip修改成功，重启客户端生效'
-		  }); 
+    changeip() {
+      console.log('改变服务ip', this.ipvalue)
+      localStorage.ip = 'http://' + this.ipvalue
+      this.outerVisible = false
+      this.$message({
+        type: 'success',
+        message: '服务器ip修改成功，重启客户端生效'
+		  })
     },
     root() { this.$router.push({ path: '/' }) },
     showPwd() {
@@ -117,7 +114,7 @@ export default {
       }
     },
     handleLogin() {
-      console.log(process.env.BASE_API);
+      console.log(process.env.BASE_API)
       /*     this.$refs.loginForm.validate(valid => { */
       if (this.loginForm.username) {
         this.loading = true

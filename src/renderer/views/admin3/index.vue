@@ -121,7 +121,7 @@ export default {
       fix.newname = row.name
 
       // 重命名
-      var renameurl = localStorage.ip+'/repo/modify'
+      var renameurl = localStorage.ip + '/repo/modify'
       this.axios.post(renameurl, fix).then(body => {
         console.log(body.data)
         console.log('重命名成功')
@@ -135,10 +135,9 @@ export default {
     },
 
     handleDelete(index, row) { // 删除
-    
       console.log(index, row)
       console.log('被编辑的id是', row.id)
-      var deleteurl = localStorage.ip+'/repo/remove?repo=' + row.id
+      var deleteurl = localStorage.ip + '/repo/remove?repo=' + row.id
       this.axios.get(deleteurl).then(body => {
         console.log(body.data)
         if (row.id == 9999) {
@@ -155,13 +154,13 @@ export default {
     },
     fun1: function() {
       this.dialogFormVisible = false
-      this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+      this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
         alert(body)
         $('#shuaxin').click()
       })
     },
     fun2: function() { // 刷新函数
-      this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+      this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
         this.tableData = body.data.repos
         //
         this.tableData.pop()
@@ -171,7 +170,7 @@ export default {
 
     fun3: function() {
       this.dialogFormVisible = false
-      this.url = localStorage.ip+'/repo/new?name=' + this.form.name
+      this.url = localStorage.ip + '/repo/new?name=' + this.form.name
       this.axios.get(this.url).then(body => {
         console.log(body.data)
         console.log('接受成功')
@@ -184,7 +183,7 @@ export default {
 
   mounted() {
     /*         this.axios.post("http://rap2api.taobao.org/app/mock/15053/msg").then(body => {this.content = body.data; });    */
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.tableData = body.data.repos
       // 删除最后一个实验室
       this.tableData.pop()

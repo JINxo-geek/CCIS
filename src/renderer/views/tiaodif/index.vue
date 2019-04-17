@@ -276,7 +276,7 @@ import bg from '@/assets/bg.png'
 export default {
   data() {
     return {
-      reponum:0,
+      reponum: 0,
       // loading
       searchloading: false,
       img: bg,
@@ -370,9 +370,8 @@ export default {
   },
 
   mounted() {
-
     // 获取远程仓库不要最后一个
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.repo = body.data.repos
       this.repo.pop()
       this.repo.pop()
@@ -386,7 +385,7 @@ export default {
   }); */
 
     // 在创建的时候获取远程库位
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);
@@ -439,28 +438,28 @@ console.log("遍历id元素",this.temp[i].id);  */
     },
     // 调配
     func5() {
-      var urltiao = localStorage.ip+'/distribute?uid=' + this.tableDataName+'&repo=' + this.dist.name;/*  '&date=' + this.distdate */
-      if(this.dist.name>this.reponum||this.dist.name<=0){
+      var urltiao = localStorage.ip + '/distribute?uid=' + this.tableDataName + '&repo=' + this.dist.name+'&token='+localStorage.token/*  '&date=' + this.distdate */
+      if (this.dist.name > this.reponum || this.dist.name <= 0) {
         this.$message({
           type: 'warning',
-          message: "实验室编号不在有效范围内"
-      })
-      return
-      } 
+          message: '实验室编号不在有效范围内'
+        })
+        return
+      }
       this.axios.get(urltiao).then(body => { /* console.log(body.data); */
         /* console.log("调配成功"); */
         // 重新获取表格
-        var that = this;
-  if(body.data.code==20000){
-         this.$message({
-          type: 'success',
-          message: body.data.msg
+        var that = this
+        if (body.data.code == 20000) {
+          this.$message({
+            type: 'success',
+            message: body.data.msg
 		  })
-        }else{
-           this.$message({
-          type: 'warning',
-          message: body.data.msg
-      })
+        } else {
+          this.$message({
+            type: 'warning',
+            message: body.data.msg
+          })
         }
 
         this.axios.get(this.url).then(body => {
@@ -468,9 +467,7 @@ console.log("遍历id元素",this.temp[i].id);  */
           this.totalItems = body.data.total
         })
       }).catch(function(error) {
-
-        console.log("网络错误",error);
-
+        console.log('网络错误', error)
       })
     },
 
@@ -500,7 +497,7 @@ console.log("遍历id元素",this.temp[i].id);  */
     search1() {
       this.searchloading = true
       // 条件筛选
-      this.url = localStorage.ip+'/newquery?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage + '&uid=' + this.search.uid
+      this.url = localStorage.ip + '/newquery?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage + '&uid=' + this.search.uid
       this.axios.get(this.url).then(body => {
         this.tableDataEnd = body.data.data
         this.totalItems = body.data.total
@@ -514,10 +511,8 @@ console.log("遍历id元素",this.temp[i].id);  */
         this.$message.warning('查询条件不能为空！')
         return
       }
-      
-      this.distribute = true;
-      
 
+      this.distribute = true
     },
     openData() {
       this.tableDataEnd = this.tabletemp

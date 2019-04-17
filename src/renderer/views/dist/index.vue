@@ -149,7 +149,7 @@ export default {
   methods: {
     // 获取待领用表
     querydist() {
-      this.disturl = localStorage.ip+'/queryDist?size=100&start=0&repo=' + this.roles[1]
+      this.disturl = localStorage.ip + '/queryDist?size=100&start=0&repo=' + this.roles[1]
       console.log('打印', this.disturl)
       this.axios.get(this.disturl).then(body => {
         console.log(body.data)
@@ -161,7 +161,7 @@ export default {
     },
 
     disthandleClick(row) {
-      var distedurl = localStorage.ip+'/use?recordId=' + row.recordId
+      var distedurl = localStorage.ip + '/use?recordId=' + row.recordId+'&token='+localStorage.token
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')

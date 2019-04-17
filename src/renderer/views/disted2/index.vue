@@ -368,7 +368,7 @@ export default {
     this.search.repo = parseInt(str)
 
     // 在创建的时候获取远程库位
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);
@@ -586,7 +586,7 @@ a)
     outdialogfunc() {
       this.outdialog = true
 
-      var urlout = localStorage.ip+'/query?uid=' + this.logoutcode
+      var urlout = localStorage.ip + '/query?uid=' + this.logoutcode
       this.axios.get(urlout).then(body => {
         console.log(body.data)
         this.uidtable = body.data.data[0]
@@ -597,7 +597,7 @@ a)
     // 注销
     logout() {
       this.msgloading = true
-      var logouturl = localStorage.ip+'/checkout?uid=' + this.logoutcode
+      var logouturl = localStorage.ip + '/checkout?uid=' + this.logoutcode
       this.axios.get(logouturl).then(body => {
         console.log(body.data)
         this.msgloading = false
@@ -690,7 +690,7 @@ for(var i=this.temp.length-1;i>-1;i--)
     search1() {
       this.searchloading = true
       // 条件筛选
-      this.url = localStorage.ip+'/newquery?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage + '&uid=' + this.search.uid
+      this.url = localStorage.ip + '/newquery?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage + '&uid=' + this.search.uid
       this.axios.get(this.url).then(body => {
         this.tableDataEnd = body.data.data
         this.totalItems = body.data.total

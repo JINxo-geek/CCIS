@@ -242,12 +242,12 @@ export default {
     ])
   },
   mounted() {
-    this.newquery = localStorage.ip+'/newquery?repo=' + this.roles[1]
+    this.newquery = localStorage.ip + '/newquery?repo=' + this.roles[1]
     console.log('url', this.newquery)
 
     this.axios.get(this.newquery).then(body => { this.tableDataEnd = body.data.data })
     // 在创建的时候获取远程库位
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);
@@ -286,7 +286,7 @@ export default {
       console.log(row.barcode)
       console.log(row.number)
 
-      this.disturl = localStorage.ip+'/distribute?barcode=' + row.barcode + '&number=' + this.dist.nubmer + '&repo=' + this.dist.name
+      this.disturl = localStorage.ip + '/distribute?barcode=' + row.barcode + '&number=' + this.dist.nubmer + '&repo=' + this.dist.name+'&token='+localStorage.token
       this.axios.get(this.disturl).then(body => {
         console.log(body.data)
         console.log('接受成功')
@@ -319,7 +319,7 @@ export default {
       this.repotrans()
 
       // 条件筛选
-      this.url = localStorage.ip+'/query?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name
+      this.url = localStorage.ip + '/query?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name
       this.axios.get(this.url).then(body => { this.tableDataEnd = body.data.data })
     },
 

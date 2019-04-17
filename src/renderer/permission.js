@@ -9,8 +9,8 @@ router.beforeEach((to, from, next) => {
   NProgress.start(store.getters.token)
   if (store.getters.token) {
     console.log(store.getters.token)
-    localStorage.token = store.getters.token;
-    console.log("localStorage的值",localStorage.token)
+    localStorage.token = store.getters.token
+    console.log('localStorage的值', localStorage.token)
     if (to.path === '/login') {
       next({ path: '/' })
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle itif current page is dashboard will not trigger	afterEach hook, so manually handle it

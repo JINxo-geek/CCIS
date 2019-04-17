@@ -259,6 +259,7 @@
       <template slot-scope="scope">
         <el-button @click="disthandleClick(scope.row);distribute=true" type="primary" size="small">打印</el-button>
     <el-button @click="disthandleClick2(scope.row)" type="primary" size="small">详细</el-button>
+      <el-button @click="disthandleClick3(scope.row)" type="primary" size="small">申请</el-button>
         </template>
     </el-table-column>
     </el-table>
@@ -307,18 +308,18 @@ export default {
     return {
       log: [
         {
-            "disttime": "2018-12-17 11:24:19",
-            "from": 3,
-            "to": 2,
-            "usetime": "2018-12-17 11:24:50"
+          'disttime': '2018-12-17 11:24:19',
+          'from': 3,
+          'to': 2,
+          'usetime': '2018-12-17 11:24:50'
         },
         {
-            "disttime": "2018-12-16 22:01:11",
-            "from": 1,
-            "to": 3,
-            "usetime": "2018-12-16 22:02:13"
+          'disttime': '2018-12-16 22:01:11',
+          'from': 1,
+          'to': 3,
+          'usetime': '2018-12-16 22:02:13'
         }
-    ],
+      ],
       msgloading: false,
       searchloading: false,
       img: bg,
@@ -346,7 +347,7 @@ export default {
       distribute: false,
       disturl: '',
       // 搜索数据
-      opLogurl:"",
+      opLogurl: '',
       url: '',
       searchpng,
       search: {
@@ -429,9 +430,8 @@ export default {
     ])
   },
   mounted() {
-    
     // 在创建的时候获取远程库位
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);
@@ -640,29 +640,26 @@ a)
   },
 
   methods: {
-    opLog(){
-       this.opLogurl = localStorage.ip+'/track?uid='+this.logoutcode;
-this.axios.get(this.opLogurl).then(body => {console.log(body.data);
-  if(body.data.code==20000){
-         this.$message({
-          type: 'success',
-          message: body.data.msg
+    opLog() {
+      this.opLogurl = localStorage.ip + '/track?uid=' + this.logoutcode
+      this.axios.get(this.opLogurl).then(body => {
+        console.log(body.data)
+        if (body.data.code == 20000) {
+          this.$message({
+            type: 'success',
+            message: body.data.msg
 		  })
-        }else{
-           this.$message({
-          type: 'warning',
-          message: body.data.msg
+        } else {
+          this.$message({
+            type: 'warning',
+            message: body.data.msg
 		  })
         }
-this.log = body.data.data;
-console.log("接受成功");
-
-
-}).catch(function(error) {
-console.log(error);
-});
-
-
+        this.log = body.data.data
+        console.log('接受成功')
+      }).catch(function(error) {
+        console.log(error)
+      })
     },
     // 状态位
     filterTag(value, row) {
@@ -673,7 +670,7 @@ console.log(error);
     outdialogfunc() {
       this.outdialog = true
 
-      var urlout = localStorage.ip+'/query?uid=' + this.logoutcode
+      var urlout = localStorage.ip + '/query?uid=' + this.logoutcode
       this.axios.get(urlout).then(body => {
         console.log(body.data)
         this.uidtable = body.data.data[0]
@@ -684,7 +681,7 @@ console.log(error);
     // 注销
     logout() {
       this.msgloading = true
-      var logouturl = localStorage.ip+'/checkout?uid=' + this.logoutcode
+      var logouturl = localStorage.ip + '/checkout?uid=' + this.logoutcode+'&token='+localStorage.token
       this.axios.get(logouturl).then(body => {
         console.log(body.data)
         this.msgloading = false
@@ -754,18 +751,17 @@ console.log(error);
         that.jia = false
       }, 1000)
     },
-    disthandleClick2(row){
- console.log('一物一码', row.uid);
-this.outdialog = true;
-this.logoutcode = row.uid;
-  var urlout = localStorage.ip+'/query?uid=' + this.logoutcode
+    disthandleClick2(row) {
+      console.log('一物一码', row.uid)
+      this.outdialog = true
+      this.logoutcode = row.uid
+      var urlout = localStorage.ip + '/query?uid=' + this.logoutcode
       this.axios.get(urlout).then(body => {
         console.log(body.data)
         this.uidtable = body.data.data[0]
       }).catch(function(error) {
         console.log(error)
       })
-
     },
 
     /*
@@ -790,7 +786,7 @@ for(var i=this.temp.length-1;i>-1;i--)
     search1() {
       this.searchloading = true
       // 条件筛选
-      this.url = localStorage.ip+'/newquery?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage + '&uid=' + this.search.uid
+      this.url = localStorage.ip + '/newquery?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage + '&uid=' + this.search.uid
       this.axios.get(this.url).then(body => {
         this.tableDataEnd = body.data.data
         this.totalItems = body.data.total

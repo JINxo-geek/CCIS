@@ -128,7 +128,6 @@
     <el-table-column fixed="right" label="操作" width="100">
       <template slot-scope="scope">
         <el-button @click="disthandleClick(scope.row);distribute=true" type="primary" size="small">调配</el-button>
-   
         </template>
     </el-table-column>
     </el-table>
@@ -155,7 +154,7 @@ import bg from '@/assets/bg.png'
 export default {
   data() {
     return {
-     
+
       searchloading: false,
       img: bg,
       // 去除最后一位的远程库位
@@ -248,12 +247,11 @@ export default {
 
   mounted() {
     // 获取远程仓库不要最后一个
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.repo = body.data.repos
       this.repo.pop()
       this.repo.pop()
-      console.log("实验室数量",this.repo.length)
-      
+      console.log('实验室数量', this.repo.length)
     })
     this.search1()
 
@@ -263,7 +261,7 @@ export default {
   }); */
 
     // 在创建的时候获取远程库位
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);
@@ -305,24 +303,22 @@ console.log("遍历id元素",this.temp[i].id);  */
     },
     // 调配
     func5() {
-      var urltiao = localStorage.ip+'/distribute?barcode=' + this.disturl + '&number=' + this.dist.number + '&repo=' + this.dist.name + '&date=' + this.distdate
+      var urltiao = localStorage.ip + '/distribute?barcode=' + this.disturl + '&number=' + this.dist.number + '&repo=' + this.dist.name + '&date=' + this.distdate+'&token='+localStorage.token
 
       this.axios.get(urltiao).then(body => { /* console.log(body.data); */
         /* console.log("调配成功"); */
         // 重新获取表格
-        if(body.data.code==20000){
-         this.$message({
-          type: 'success',
-          message: body.data.msg
+        if (body.data.code == 20000) {
+          this.$message({
+            type: 'success',
+            message: body.data.msg
 		  })
-        }else{
-           this.$message({
-          type: 'warning',
-          message: body.data.msg
+        } else {
+          this.$message({
+            type: 'warning',
+            message: body.data.msg
 		  })
         }
-        
-
 
         this.axios.get(this.url).then(body => {
           this.tableDataEnd = body.data.data
@@ -357,7 +353,7 @@ console.log("遍历id元素",this.temp[i].id);  */
 
     search1() {
       this.searchloading = true
-      this.url = localStorage.ip+'/query?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage
+      this.url = localStorage.ip + '/query?repo=' + this.search.repo + '&cas=' + this.search.cas + '&barcode=' + this.search.barcode + '&name=' + this.search.name + '&size=' + this.pageSize + '&start=' + this.currentPage
       this.axios.get(this.url).then(body => {
         this.tableDataEnd = body.data.data
         this.totalItems = body.data.total

@@ -50,11 +50,13 @@
     <el-checkbox label="选中且禁用" disabled></el-checkbox>
   </el-checkbox-group> -->
 	    <el-checkbox-group v-model="ruleForm.property">
-      <el-checkbox label="剧毒" name="剧毒"></el-checkbox>
-      <el-checkbox label="易燃" name="易燃"></el-checkbox>
-      <el-checkbox label="易制爆" name="易制爆"></el-checkbox>
-      <el-checkbox label="危化品" name="危化品"></el-checkbox>
-			<el-checkbox label="普通试剂" name="普通试剂"></el-checkbox>
+      <el-checkbox label="毒害" name="毒害"></el-checkbox>
+      <el-checkbox label="制毒" name="制毒"></el-checkbox>
+      <el-checkbox label="易爆" name="易爆"></el-checkbox>
+      <el-checkbox label="危化" name="危化"></el-checkbox>
+			<el-checkbox label="普化" name="普化"></el-checkbox>
+      <el-checkbox label="生化" name="生化"></el-checkbox>
+      <el-checkbox label="其它" name="其它"></el-checkbox>
     </el-checkbox-group>
   </el-form-item>
 	
@@ -180,7 +182,7 @@ export default {
       this.barcode = this.msg
       // 入库
 
-      this.url = localStorage.ip+'/checkin?barcode=' + this.barcode
+      this.url = localStorage.ip+'/checkin?barcode=' + this.barcode+'&token='+localStorage.token;
 
  	this.axios.get(this.url).then(body => {
 		 console.log('打印接受的数据：', body.data.data)

@@ -125,7 +125,7 @@ import bg from '@/assets/bg.png'
 export default {
   methods: {
     disthandleClick(row) { // 权限调配函数
-      this.url = localStorage.ip+'/user/modify?token='+localStorage.token
+      this.url = localStorage.ip + '/user/modify?token=' + localStorage.token
       this.changetable.username = row.username
       this.changetable.password = row.newpassword
       this.changetable.name = row.name
@@ -158,7 +158,7 @@ export default {
 
     handleEdit(index, row) { // 修改确认
       console.log(index, row)
-      this.url = localStorage.ip+'/user/modify?token='+localStorage.token
+      this.url = localStorage.ip + '/user/modify?token=' + localStorage.token
       this.changetable.username = row.username
       this.changetable.password = row.newpassword
       this.changetable.name = row.name
@@ -180,19 +180,19 @@ export default {
     },
 
     handleDelete(index, row) {
-      console.log(index, row);
-      var deleteurl = localStorage.ip+'/user/remove?username='+row.username+'&token='+row.token;
-this.axios.get(deleteurl).then(body => {console.log(body.data);
-console.log("接受成功");
-$("#shuaxin").click();
-}).catch(function(error) {
-console.log(error);
-});
-
+      console.log(index, row)
+      var deleteurl = localStorage.ip + '/user/remove?username=' + row.username + '&token=' + row.token
+      this.axios.get(deleteurl).then(body => {
+        console.log(body.data)
+        console.log('接受成功')
+        $('#shuaxin').click()
+      }).catch(function(error) {
+        console.log(error)
+      })
     },
 
     fun2: function() { // 刷新数据
-      this.axios.get(localStorage.ip+'/user/getAll').then(body => {
+      this.axios.get(localStorage.ip + '/user/getAll').then(body => {
         this.tableData = body.data.users
         /* console.log("打印内容"+this.tableDate); */
       })
@@ -204,7 +204,7 @@ console.log(error);
       // 用户注册接口
       this.dialogFormVisible = false
       this.form.password = this.form.newpassword
-      this.axios.post(localStorage.ip+'/user/register', this.form).then(body => {
+      this.axios.post(localStorage.ip + '/user/register', this.form).then(body => {
         console.log(body.data)
         this.$notify({
           title: '成功',
@@ -233,14 +233,14 @@ console.log(error);
   mounted() {
     { // 获取仓库
     /*         this.axios.post("http://rap2api.taobao.org/app/mock/15053/msg").then(body => {this.content = body.data; });    */
-      this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+      this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
         this.repo = body.data.repos
         this.repo.pop()
         this.repo.pop()
       })
     }
     /*         this.axios.post("http://rap2api.taobao.org/app/mock/15053/msg").then(body => {this.content = body.data; });    */
-    this.axios.get(localStorage.ip+'/user/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/user/getAll').then(body => {
       this.tableData = body.data.users
 
       /* console.log("打印内容"+this.tableDate); */

@@ -43,7 +43,7 @@ export default {
       img: bg
     }
   },
-  name: 'dashboard',
+ 
   computed: {
     ...mapGetters([
       'name',
@@ -51,7 +51,7 @@ export default {
     ])
   },
   mounted() {
-    console.log("打印ip",localStorage.ip);
+    console.log('打印ip', localStorage.ip)
     if (this.roles[0] == 'admin') {
       // 隐藏分库管理
       $('.el-submenu:eq(2)').attr('style', 'display:none')
