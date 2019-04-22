@@ -146,7 +146,16 @@ export const constantRouterMap = [
         title: '领用',
         icon: 'form'
       }
-    },
+    }, {
+        path: 'list',
+        name: 'list',
+        component: () =>
+          import('@/views/list/index'),
+        meta: {
+          title: '收到的申请',
+          icon: 'form'
+        }
+      },
     {
       path: 'disted2',
       name: 'disted2',

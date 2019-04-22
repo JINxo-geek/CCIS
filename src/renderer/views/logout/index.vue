@@ -237,9 +237,10 @@
         <el-table-column sortable prop="serial" label="批号" width="120">
          </el-table-column>
 
-    <el-table-column fixed="right" label="操作" width="100">
+    <el-table-column fixed="right" label="操作" width="150">
       <template slot-scope="scope">
         <el-button @click="disthandleClick(scope.row);distribute=true" type="primary" size="small">打印</el-button>
+        <el-button @click="disthandleClick2(scope.row);" type="primary" size="small">处置</el-button>
    
         </template>
     </el-table-column>
@@ -397,7 +398,7 @@ export default {
   },
   mounted() {
     // 在创建的时候获取远程库位
-    this.axios.get('http://139.199.170.130:2333/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);
@@ -696,7 +697,25 @@ console.log(error);
         that.jia = false
       }, 1000)
     },
-
+       disthandleClick2(row) {
+      
+      console.log('一物一码', row.uid)
+      var urldisposal = localStorage.ip + '/dispose?token=' + localStorage.token + '&uid=' + row.uid;
+      this.axios.get(urldisposal).then(body => { 
+       
+        this.$message({
+          type: 'success',
+          message: '处置成功'
+		  })
+//刷新数据
+        this.axios.get(this.url).then(body => {
+          this.tableDataEnd = body.data.data
+          this.totalItems = body.data.total
+        })
+      }).catch(function(error) {
+        console.log(error)
+      })
+    },
     /*
 repotrans(){
   //进行库位和实验室名转换
