@@ -52,7 +52,7 @@ export default {
   },
   mounted() {
     console.log('打印ip', localStorage.ip)
-    if (this.roles[0] == 'admin') {
+/*     if (this.roles[0] == 'admin') {
       // 隐藏分库管理
       $('.el-submenu:eq(2)').attr('style', 'display:none')
     }
@@ -67,7 +67,7 @@ export default {
       // 隐藏入库
       $('.el-menu-item:first').attr('style', 'display:none')
       $('.el-menu-item:first').attr('style', 'display:none')
-    }
+    } */
   }
 }
 </script>

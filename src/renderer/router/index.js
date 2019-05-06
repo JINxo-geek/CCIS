@@ -83,6 +83,35 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/shenpi',
+    component: Layout,
+    meta: {
+      title: '审批',
+      icon: 'tiao'
+    },
+    children: [{
+      path: 'tiao',
+      name: 'tiao2',
+      component: () =>
+        import('@/views/tiao/index'),
+      meta: {
+        title: '初次审批',
+        icon: 'tiaochu'
+      }
+    },
+    {
+      path: 'tiaodif',
+      name: 'tiaodif',
+      component: () =>
+        import('@/views/tiaodif/index'),
+      meta: {
+        title: '异库审批',
+        icon: 'tiaochu'
+      }
+    }
+    ]
+  },
+  {
     path: '/dist',
     component: Layout,
     meta: {
@@ -170,10 +199,10 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/admin',
+    path: '/weihu',
     component: Layout,
     meta: {
-      title: '管理',
+      title: '系统维护',
       icon: 'component'
     },
     children: [{
@@ -198,16 +227,48 @@ export const constantRouterMap = [
         icon: 'canku'
       }
     }
-      /* {
-         path: 'admin2',
-         name: 'admin2',
-         component: () =>
-           import ('@/views/admin2/index'),
-         meta: {
-           title: '权限分配',
-           icon: 'form'
-         }
-       } */
+    
+    ]
+  },
+  {
+    path: '/admin',
+    component: Layout,
+    meta: {
+      title: '管理',
+      icon: 'component'
+    },
+    children: [{
+      path: 'upload',
+      name: 'upload',
+      component: () =>
+        import('@/views/admin/index'),
+      meta: {
+        title: '批量上传',
+        icon: 'user',
+        roles: ['admin']
+      }
+    },
+
+    {
+      path: 'zhuxiao',
+      name: 'zhuxiao',
+      component: () =>
+        import('@/views/admin3/index'),
+      meta: {
+        title: '注销管理',
+        icon: 'canku'
+      }
+      }, {
+      path: 'chuzhi',
+        name: 'chuzhi',
+        component: () =>
+          import('@/views/admin3/index'),
+        meta: {
+          title: '处置管理',
+          icon: 'canku'
+        }
+      }
+
     ]
   },
   /* {
