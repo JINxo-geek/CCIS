@@ -1,5 +1,6 @@
 <template>
 <div style="background-color: rgba(242, 242, 242, 1);">
+  <img class="pic" :src="img" alt="bg">
 <el-row>
   <el-col :span="24">
     <div class="grid-content bg-purple-dark" style="text-align: center;">
@@ -94,11 +95,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import permission from '@/directive/permission/index.js' // 权限判断指令
-
 import searchpng from '@/assets/get-money.png'
+import bg from '@/assets/bg.png'
 export default {
   data() {
     return {
+      img:bg,
       distable: [],
       distribute: false,
       searchpng,
@@ -269,3 +271,14 @@ for(var i=this.temp.length-1;i>-1;i--)
   }
 }
 </script>
+<style rel="stylesheet/scss" lang="scss" scoped>
+.pic{
+
+position: absolute;
+width: 108%;
+left:-102px;
+top:10%;
+}
+
+
+</style>

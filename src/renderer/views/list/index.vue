@@ -1,5 +1,6 @@
 <template>
 <div style="background-color: rgba(242, 242, 242, 1);">
+  <img class="pic" :src="img" alt="bg">
 <el-row>
   <el-col :span="24">
     <div class="grid-content bg-purple-dark" style="text-align: center;">
@@ -51,10 +52,10 @@
 <!--         <el-table-column prop="recordId" label="领用码" width="120">
          </el-table-column> -->
 
-    <el-table-column fixed="right" label="操作" width="100">
+    <el-table-column fixed="right" label="操作" width="180">
       <template slot-scope="scope">
-        <el-button @click="disthandleClick(scope.row);" type="primary" size="small">接受申请</el-button>
-   
+        <el-button @click="disthandleClick(scope.row);" type="primary" size="small">同意</el-button>
+    <el-button @click="disthandleClick2(scope.row);" type="danger" size="small">拒绝</el-button>
         </template>
     </el-table-column>
     </el-table>
@@ -94,11 +95,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import permission from '@/directive/permission/index.js' // 权限判断指令
-
 import searchpng from '@/assets/get-money.png'
+import bg from '@/assets/bg.png'
 export default {
   data() {
     return {
+      img:bg,
       distable: [],
       distribute: false,
       searchpng,
@@ -147,9 +149,9 @@ export default {
     ])
   },
   methods: {
-    // 获取待领用表
+    // 获取收到的 
     querydist() {
-      this.disturl = localStorage.ip + '/queryDist?size=100&start=0&repo=' + this.roles[1]
+      this.disturl = localStorage.ip + '/application/list?repo=' + this.roles[1]+'&token='+localStorage.token
       console.log('打印', this.disturl)
       this.axios.get(this.disturl).then(body => {
         console.log(body.data)
@@ -161,12 +163,28 @@ export default {
     },
 
     disthandleClick(row) {
-      var distedurl = localStorage.ip + '/use?recordId=' + row.recordId+'&token='+localStorage.token
+      //同意申请
+      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId+'&token='+localStorage.token+'&action=accept'
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')
         this.$message({
-          message: '领用成功',
+          message: '同意',
+          type: 'success'
+        })
+        this.querydist()
+      }).catch(function(error) {
+        console.log(error)
+      })
+    },
+        disthandleClick2(row) {
+      //同意拒绝
+      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId+'&token='+localStorage.token+'&action=reject'
+      this.axios.get(distedurl).then(body => {
+        console.log(body.data)
+        console.log('接受成功')
+        this.$message({
+          message: '拒绝',
           type: 'success'
         })
         this.querydist()
@@ -269,3 +287,14 @@ for(var i=this.temp.length-1;i>-1;i--)
   }
 }
 </script>
+<style rel="stylesheet/scss" lang="scss" scoped>
+.pic{
+
+position: absolute;
+width: 108%;
+left:-102px;
+top:10%;
+}
+
+
+</style>

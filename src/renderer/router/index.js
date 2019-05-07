@@ -197,6 +197,35 @@ export const constantRouterMap = [
     }
     ]
   },
+    {
+      path: '/dist',
+      component: Layout,
+      meta: {
+        title: '申请',
+        icon: 'component'
+      },
+      children: [{
+          path: 'apply',
+          name: 'apply',
+          component: () =>
+            import('@/views/apply/index'),
+          meta: {
+            title: '初次申请',
+            icon: 'form'
+          }
+        }, {
+          path: 'applydis',
+          name: 'applydis',
+          component: () =>
+            import('@/views/applydis/index'),
+          meta: {
+            title: '异库申请',
+            icon: 'form'
+          }
+        }
+
+      ]
+    },
 
   {
     path: '/weihu',
