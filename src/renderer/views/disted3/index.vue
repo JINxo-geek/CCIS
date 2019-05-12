@@ -208,7 +208,7 @@
 </el-row>
 </el-dialog>
 
-  <el-table :data="tableDataEnd" border style="width: 100%" v-loading="searchloading"  element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)">
+  <el-table max-height="600" :data="tableDataEnd" border style="width: 100%" v-loading="searchloading"  element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)">
     
         <el-table-column type="selection" width="55">
     </el-table-column>
@@ -259,7 +259,7 @@
       <template slot-scope="scope">
         <el-button @click="disthandleClick(scope.row);distribute=true" type="primary" size="small">打印</el-button>
     <el-button @click="disthandleClick2(scope.row)" type="primary" size="small">详细</el-button>
-      <el-button @click="disthandleClick3(scope.row)" type="primary" size="small">申请</el-button>
+    
         </template>
     </el-table-column>
     </el-table>

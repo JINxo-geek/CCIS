@@ -1,5 +1,5 @@
 <template>
-<!-- <div style="background-color: rgba(242, 242, 242, 1);"> -->
+<!-- 异库申请 -->
 <div style="height: 850px;
     background-color: rgba(242, 242, 242, 1);">
 <img class="pic" :src="img" alt="bg">
@@ -673,7 +673,7 @@ a)
       var urlout = localStorage.ip + '/query?uid=' + this.logoutcode
       this.axios.get(urlout).then(body => {
         console.log(body.data)
-        this.uidtable = body.data.data[0]
+    
       }).catch(function(error) {
         console.log(error)
       })
@@ -759,6 +759,25 @@ console.log(error);
       this.axios.get(urlout).then(body => {
         console.log(body.data)
         this.uidtable = body.data.data[0]
+      }).catch(function(error) {
+        console.log(error)
+      })
+    },
+        disthandleClick3(row) {
+      var tmpbarcode = row.barcode
+      var tmpdate = row.checkinDate
+
+      var tmpuid = row.uid
+      
+      var urlout = localStorage.ip + '/application/send?uid=' + tmpuid+"&token="+localStorage.token+"&repo="+this.roles[1]+"&action=transport"+"&barcode="+tmpbarcode+"&date="+tmpdate
+    this.axios.get(urlout).then(body => { 
+       
+        this.$message({
+          type: 'success',
+          message: '发送申请成功'
+		  })
+//刷新数据
+       search1()
       }).catch(function(error) {
         console.log(error)
       })
