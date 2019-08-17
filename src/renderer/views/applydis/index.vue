@@ -769,7 +769,7 @@ console.log(error);
 
       var tmpuid = row.uid
       
-      var urlout = localStorage.ip + '/application/send?uid=' + tmpuid+"&token="+localStorage.token+"&repo="+this.roles[1]+"&action=transport"+"&barcode="+tmpbarcode+"&date="+tmpdate
+      var urlout = localStorage.ip + '/application/send?uid=' + tmpuid+"&token="+localStorage.token+"&repo="+this.roles[1]+"&action=transport"+"&barcode="+tmpbarcode
     this.axios.get(urlout).then(body => { 
        
         this.$message({
@@ -777,7 +777,7 @@ console.log(error);
           message: '发送申请成功'
 		  })
 //刷新数据
-       search1()
+       this.search1()
       }).catch(function(error) {
         console.log(error)
       })

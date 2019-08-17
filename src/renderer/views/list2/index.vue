@@ -35,8 +35,8 @@
     </el-table-column>
         <el-table-column prop="name" label="药品名" width="120">
     </el-table-column>
-      <el-table-column prop="number" label="库存" width="120">
-      </el-table-column> 
+         <el-table-column prop="number" label="库存" width="120">
+      </el-table-column>
         <el-table-column prop="property" label="性质" width="120">
     </el-table-column>
         <el-table-column prop="concentration" label="浓度(%)" width="120">
@@ -164,7 +164,7 @@ export default {
 
     disthandleClick(row) {
       //同意申请
-      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId+'&token='+localStorage.token+'&action=accept'
+      var distedurl = localStorage.ip + '/application/review?recordId=' + row.recordId+'&token='+localStorage.token+'&action=accept'
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')
@@ -172,6 +172,7 @@ export default {
           message: '同意',
           type: 'success'
         })
+        //刷新数据
         this.querydist()
       }).catch(function(error) {
         console.log(error)
@@ -179,7 +180,7 @@ export default {
     },
         disthandleClick2(row) {
       //同意拒绝
-      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId+'&token='+localStorage.token+'&action=reject'
+      var distedurl = localStorage.ip + '/application/review?recordId=' + row.recordId+'&token='+localStorage.token+'&action=reject'
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')

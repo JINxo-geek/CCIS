@@ -93,7 +93,7 @@ export const constantRouterMap = [
       path: 'tiao',
       name: 'tiao2',
       component: () =>
-        import('@/views/tiao/index'),
+        import('@/views/list/index'),
       meta: {
         title: '初次审批',
         icon: 'tiaochu'
@@ -103,9 +103,9 @@ export const constantRouterMap = [
       path: 'tiaodif',
       name: 'tiaodif',
       component: () =>
-        import('@/views/tiaodif/index'),
+        import('@/views/list/index'),
       meta: {
-        title: '异库审批',
+        title: '(审批只做一？)',
         icon: 'tiaochu'
       }
     }
@@ -176,10 +176,10 @@ export const constantRouterMap = [
         icon: 'form'
       }
     }, {
-        path: 'list',
-        name: 'list',
+        path: 'list2',
+        name: 'list2',
         component: () =>
-          import('@/views/list/index'),
+          import('@/views/list2/index'),
         meta: {
           title: '收到的申请',
           icon: 'form'
@@ -270,7 +270,7 @@ export const constantRouterMap = [
       path: 'upload',
       name: 'upload',
       component: () =>
-        import('@/views/admin/index'),
+        import('@/views/upload/index'),
       meta: {
         title: '批量上传',
         icon: 'user',
@@ -282,7 +282,7 @@ export const constantRouterMap = [
       path: 'zhuxiao',
       name: 'zhuxiao',
       component: () =>
-        import('@/views/admin3/index'),
+        import('@/views/disted3/index'),
       meta: {
         title: '注销管理',
         icon: 'canku'
@@ -291,7 +291,7 @@ export const constantRouterMap = [
       path: 'chuzhi',
         name: 'chuzhi',
         component: () =>
-          import('@/views/admin3/index'),
+          import('@/views/logout/index'),
         meta: {
           title: '处置管理',
           icon: 'canku'

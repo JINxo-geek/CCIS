@@ -6,7 +6,7 @@
     <el-form class="login-form" autoComplete="on" :model="loginForm"  ref="loginForm" label-position="left">
 
        <img class="pic-loginlogo" style=" margin: -109px;height: 126px;" :src="loginlogo" alt="loginlogo">
-      <h3 class="title" style="    font-size: 59px;">化学品管理系统</h3>
+      <h3 class="title" style="    font-size: 59px;">化学品管理系统测试版</h3>
 
 
    <el-dialog title="修改服务器ip" :modal="false" :visible.sync="outerVisible">
