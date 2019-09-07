@@ -31,6 +31,7 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+build/win-unpacked/
 
 # Dependency directories
 node_modules/
@@ -58,4 +59,9 @@ typings/
 # dotenv environment variables file
 .env
 
+<<<<<<< HEAD
 
+=======
+# dist
+dist/
+>>>>>>> 62625e5a58db6409e5e85eb84bfecfde69707267

@@ -17,7 +17,7 @@
       <el-button type="primary" @click="changeip()">确定修改</el-button>
     </div>
   </el-dialog>
-      <el-form-item style="    margin-top: 67%;" prop="username">
+      <el-form-item style="    margin-top:200px;" prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
         </span>
