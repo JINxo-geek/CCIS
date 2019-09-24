@@ -681,7 +681,7 @@ a)
     // 注销
     logout() {
       this.msgloading = true
-      var logouturl = localStorage.ip + '/checkout?uid=' + this.logoutcode+'&token='+localStorage.token
+      var logouturl = localStorage.ip + '/checkout?uid=' + this.logoutcode + '&token=' + localStorage.token
       this.axios.get(logouturl).then(body => {
         console.log(body.data)
         this.msgloading = false

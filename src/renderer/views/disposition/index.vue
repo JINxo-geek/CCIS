@@ -397,7 +397,7 @@ export default {
   },
   mounted() {
     // 在创建的时候获取远程库位
-    this.axios.get(localStorage.ip+'/repo/getAll').then(body => {
+    this.axios.get(localStorage.ip + '/repo/getAll').then(body => {
       this.temp = body.data.repos
 
       /*   console.log(this.temp[0]);

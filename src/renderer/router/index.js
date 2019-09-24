@@ -99,16 +99,16 @@ export const constantRouterMap = [
         icon: 'tiaochu'
       }
     },
-    {
-      path: 'tiaodif',
-      name: 'tiaodif',
-      component: () =>
-        import('@/views/list/index'),
-      meta: {
-        title: '(审批只做一？)',
-        icon: 'tiaochu'
-      }
-    }
+    // {
+    //   path: 'tiaodif',
+    //   name: 'tiaodif',
+    //   component: () =>
+    //     import('@/views/list/index'),
+    //   meta: {
+    //     title: '(审批只做一？)',
+    //     icon: 'tiaochu'
+    //   }
+    // }
     ]
   },
   {
@@ -147,7 +147,7 @@ export const constantRouterMap = [
         title: '已注销查询',
         icon: 'search'
       }
-    },{
+    }, {
       path: 'disposition',
       name: 'disposition',
       component: () =>
@@ -176,15 +176,15 @@ export const constantRouterMap = [
         icon: 'form'
       }
     }, {
-        path: 'list2',
-        name: 'list2',
-        component: () =>
+      path: 'list2',
+      name: 'list2',
+      component: () =>
           import('@/views/list2/index'),
-        meta: {
-          title: '收到的申请',
-          icon: 'form'
-        }
-      },
+      meta: {
+        title: '收到的申请',
+        icon: 'form'
+      }
+    },
     {
       path: 'disted2',
       name: 'disted2',
@@ -197,35 +197,35 @@ export const constantRouterMap = [
     }
     ]
   },
-    {
-      path: '/dist',
-      component: Layout,
-      meta: {
-        title: '申请',
-        icon: 'component'
-      },
-      children: [{
-          path: 'apply',
-          name: 'apply',
-          component: () =>
-            import('@/views/apply/index'),
-          meta: {
-            title: '初次申请',
-            icon: 'form'
-          }
-        }, {
-          path: 'applydis',
-          name: 'applydis',
-          component: () =>
-            import('@/views/applydis/index'),
-          meta: {
-            title: '异库申请',
-            icon: 'form'
-          }
-        }
-
-      ]
+  {
+    path: '/dist',
+    component: Layout,
+    meta: {
+      title: '申请',
+      icon: 'component'
     },
+    children: [{
+      path: 'apply',
+      name: 'apply',
+      component: () =>
+            import('@/views/apply/index'),
+      meta: {
+        title: '初次申请',
+        icon: 'form'
+      }
+    }, {
+      path: 'applydis',
+      name: 'applydis',
+      component: () =>
+            import('@/views/applydis/index'),
+      meta: {
+        title: '异库申请',
+        icon: 'form'
+      }
+    }
+
+    ]
+  },
 
   {
     path: '/weihu',
@@ -256,7 +256,7 @@ export const constantRouterMap = [
         icon: 'canku'
       }
     }
-    
+
     ]
   },
   {
@@ -266,17 +266,18 @@ export const constantRouterMap = [
       title: '管理',
       icon: 'component'
     },
-    children: [{
-      path: 'upload',
-      name: 'upload',
-      component: () =>
-        import('@/views/upload/index'),
-      meta: {
-        title: '批量上传',
-        icon: 'user',
-        roles: ['admin']
-      }
-    },
+    children: [
+    //   {
+    //   path: 'upload',
+    //   name: 'upload',
+    //   component: () =>
+    //     import('@/views/upload/index'),
+    //   meta: {
+    //     title: '批量上传',
+    //     icon: 'user',
+    //     roles: ['admin']
+    //   }
+    // },
 
     {
       path: 'zhuxiao',
@@ -287,16 +288,16 @@ export const constantRouterMap = [
         title: '注销管理',
         icon: 'canku'
       }
-      }, {
+    }, {
       path: 'chuzhi',
-        name: 'chuzhi',
-        component: () =>
+      name: 'chuzhi',
+      component: () =>
           import('@/views/logout/index'),
-        meta: {
-          title: '处置管理',
-          icon: 'canku'
-        }
+      meta: {
+        title: '处置管理',
+        icon: 'canku'
       }
+    }
 
     ]
   },

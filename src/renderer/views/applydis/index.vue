@@ -673,7 +673,6 @@ a)
       var urlout = localStorage.ip + '/query?uid=' + this.logoutcode
       this.axios.get(urlout).then(body => {
         console.log(body.data)
-    
       }).catch(function(error) {
         console.log(error)
       })
@@ -681,7 +680,7 @@ a)
     // 注销
     logout() {
       this.msgloading = true
-      var logouturl = localStorage.ip + '/checkout?uid=' + this.logoutcode+'&token='+localStorage.token
+      var logouturl = localStorage.ip + '/checkout?uid=' + this.logoutcode + '&token=' + localStorage.token
       this.axios.get(logouturl).then(body => {
         console.log(body.data)
         this.msgloading = false
@@ -763,21 +762,20 @@ console.log(error);
         console.log(error)
       })
     },
-        disthandleClick3(row) {
+    disthandleClick3(row) {
       var tmpbarcode = row.barcode
       var tmpdate = row.checkinDate
 
       var tmpuid = row.uid
-      
-      var urlout = localStorage.ip + '/application/send?uid=' + tmpuid+"&token="+localStorage.token+"&repo="+this.roles[1]+"&action=transport"+"&barcode="+tmpbarcode
-    this.axios.get(urlout).then(body => { 
-       
+
+      var urlout = localStorage.ip + '/application/send?uid=' + tmpuid + '&token=' + localStorage.token + '&repo=' + this.roles[1] + '&action=transport' + '&barcode=' + tmpbarcode
+      this.axios.get(urlout).then(body => {
         this.$message({
           type: 'success',
           message: '发送申请成功'
 		  })
-//刷新数据
-       this.search1()
+        // 刷新数据
+        this.search1()
       }).catch(function(error) {
         console.log(error)
       })

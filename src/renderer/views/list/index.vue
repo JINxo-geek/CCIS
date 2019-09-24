@@ -100,7 +100,7 @@ import bg from '@/assets/bg.png'
 export default {
   data() {
     return {
-      img:bg,
+      img: bg,
       distable: [],
       distribute: false,
       searchpng,
@@ -149,9 +149,9 @@ export default {
     ])
   },
   methods: {
-    // 获取收到的 
+    // 获取收到的
     querydist() {
-      this.disturl = localStorage.ip + '/application/list?repo=' + this.roles[1]+'&token='+localStorage.token
+      this.disturl = localStorage.ip + '/application/list?repo=' + this.roles[1] + '&token=' + localStorage.token
       console.log('打印', this.disturl)
       this.axios.get(this.disturl).then(body => {
         console.log(body.data)
@@ -163,8 +163,8 @@ export default {
     },
 
     disthandleClick(row) {
-      //同意申请
-      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId+'&token='+localStorage.token+'&action=accept'
+      // 同意申请
+      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId + '&token=' + localStorage.token + '&action=accept'
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')
@@ -177,9 +177,9 @@ export default {
         console.log(error)
       })
     },
-        disthandleClick2(row) {
-      //同意拒绝
-      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId+'&token='+localStorage.token+'&action=reject'
+    disthandleClick2(row) {
+      // 同意拒绝
+      var distedurl = localStorage.ip + '/application/handle?recordId=' + row.recordId + '&token=' + localStorage.token + '&action=reject'
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')

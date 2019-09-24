@@ -438,7 +438,7 @@ console.log("遍历id元素",this.temp[i].id);  */
     },
     // 调配
     func5() {
-      var urltiao = localStorage.ip + '/distribute?uid=' + this.tableDataName + '&repo=' + this.dist.name+'&token='+localStorage.token/*  '&date=' + this.distdate */
+      var urltiao = localStorage.ip + '/distribute?uid=' + this.tableDataName + '&repo=' + this.dist.name + '&token=' + localStorage.token/*  '&date=' + this.distdate */
       if (this.dist.name > this.reponum || this.dist.name <= 0) {
         this.$message({
           type: 'warning',

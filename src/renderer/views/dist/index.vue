@@ -100,7 +100,7 @@ import bg from '@/assets/bg.png'
 export default {
   data() {
     return {
-      img:bg,
+      img: bg,
       distable: [],
       distribute: false,
       searchpng,
@@ -163,7 +163,7 @@ export default {
     },
 
     disthandleClick(row) {
-      var distedurl = localStorage.ip + '/use?recordId=' + row.recordId+'&token='+localStorage.token
+      var distedurl = localStorage.ip + '/use?recordId=' + row.recordId + '&token=' + localStorage.token
       this.axios.get(distedurl).then(body => {
         console.log(body.data)
         console.log('接受成功')

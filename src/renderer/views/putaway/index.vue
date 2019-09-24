@@ -182,7 +182,7 @@ export default {
       this.barcode = this.msg
       // 入库
 
-      this.url = localStorage.ip+'/checkin?barcode=' + this.barcode+'&token='+localStorage.token;
+      this.url = localStorage.ip + '/checkin?barcode=' + this.barcode + '&token=' + localStorage.token
 
  	this.axios.get(this.url).then(body => {
 		 console.log('打印接受的数据：', body.data.data)
@@ -227,19 +227,19 @@ export default {
 		this.ruleForm = body.data;
 		}); */
       console.log(this.ruleForm)
-      this.axios.post(this.url, this.ruleForm).then(body => { console.log(body.data)
-     if(body.data.code!=20000){
-     this.$message({
-        type: 'warning',
-        message: body.data.msg
+      this.axios.post(this.url, this.ruleForm).then(body => {
+        console.log(body.data)
+        if (body.data.code != 20000) {
+          this.$message({
+            type: 'warning',
+            message: body.data.msg
 		  })
-     }else{
-            this.$message({
-        type: 'success',
-        message: "入库成功"
+        } else {
+          this.$message({
+            type: 'success',
+            message: '入库成功'
 		  })
-     }
-      
+        }
       })
 
       this.dialogFormVisible = false

@@ -697,17 +697,15 @@ console.log(error);
         that.jia = false
       }, 1000)
     },
-       disthandleClick2(row) {
-      
+    disthandleClick2(row) {
       console.log('一物一码', row.uid)
-      var urldisposal = localStorage.ip + '/dispose?token=' + localStorage.token + '&uid=' + row.uid;
-      this.axios.get(urldisposal).then(body => { 
-       
+      var urldisposal = localStorage.ip + '/dispose?token=' + localStorage.token + '&uid=' + row.uid
+      this.axios.get(urldisposal).then(body => {
         this.$message({
           type: 'success',
           message: '处置成功'
 		  })
-//刷新数据
+        // 刷新数据
         this.axios.get(this.url).then(body => {
           this.tableDataEnd = body.data.data
           this.totalItems = body.data.total

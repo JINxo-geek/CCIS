@@ -43,7 +43,7 @@ export default {
       img: bg
     }
   },
- 
+
   computed: {
     ...mapGetters([
       'name',
@@ -52,22 +52,21 @@ export default {
   },
   mounted() {
     console.log('打印ip', localStorage.ip)
-/*     if (this.roles[0] == 'admin') {
+     if (this.roles[0] == 'admin') {
       // 隐藏分库管理
-      $('.el-submenu:eq(2)').attr('style', 'display:none')
+      $('.el-submenu')[2].hidden = true
+      //隐藏申请
+      $('.el-submenu')[3].hidden = true
     }
 
     if (this.roles[0] != 'admin') {
-      // 隐藏用户管理
-      // 隐藏调配
-      $('.el-submenu__title:first').attr('style', 'display:none')
-      $('.menu-wrapper .el-submenu:last').attr('style', 'display:none')
-      // 隐藏调配
-      $('.el-menu-item:eq(1)').attr('style', 'display:none')
-      // 隐藏入库
-      $('.el-menu-item:first').attr('style', 'display:none')
-      $('.el-menu-item:first').attr('style', 'display:none')
-    } */
+
+      $('.el-menu-item')[0].hidden = true;
+      $('.el-menu-item')[3].hidden = true
+      $('.el-submenu')[4].hidden = true
+      $('.el-submenu')[5].hidden = true
+      $('.el-submenu')[0].hidden = true
+    } 
   }
 }
 </script>

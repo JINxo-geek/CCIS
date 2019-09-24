@@ -166,7 +166,7 @@ console.log("遍历id元素",this.temp[i].id);  */
     },
     // 调配
     func5() {
-      var urltiao = localStorage.ip + '/application/send?barcode=' + this.disturl + '&number=' + this.dist.number + '&repo=' + this.dist.name + '&date=' + this.distdate+'&token='+localStorage.token+'&action=simple'
+      var urltiao = localStorage.ip + '/application/send?barcode=' + this.disturl + '&number=' + this.dist.number + '&repo=' + this.dist.name + '&date=' + this.distdate + '&token=' + localStorage.token + '&action=simple'
       this.axios.get(urltiao).then(body => { /* console.log(body.data); */
         /* console.log("调配成功"); */
         // 重新获取表格

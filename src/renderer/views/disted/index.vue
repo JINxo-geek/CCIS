@@ -286,7 +286,7 @@ export default {
       console.log(row.barcode)
       console.log(row.number)
 
-      this.disturl = localStorage.ip + '/distribute?barcode=' + row.barcode + '&number=' + this.dist.nubmer + '&repo=' + this.dist.name+'&token='+localStorage.token
+      this.disturl = localStorage.ip + '/distribute?barcode=' + row.barcode + '&number=' + this.dist.nubmer + '&repo=' + this.dist.name + '&token=' + localStorage.token
       this.axios.get(this.disturl).then(body => {
         console.log(body.data)
         console.log('接受成功')
