@@ -27,7 +27,7 @@
       <p style="font-size: 20px;">管理的实验室编号为:{{roles[1]}}</p>
       <p>&nbsp;</p>
       <hr/>
-      <p>程序版本1.0</p>
+      <p>程序版本3.1</p>
     </div></a>
 </div>
 
