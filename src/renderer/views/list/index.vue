@@ -35,7 +35,7 @@
     </el-table-column>
         <el-table-column prop="name" label="药品名" width="120">
     </el-table-column>
-      <el-table-column prop="number" label="库存" width="120">
+      <el-table-column prop="disttime" label="申请时间" width="120">
       </el-table-column> 
         <el-table-column prop="property" label="性质" width="120">
     </el-table-column>

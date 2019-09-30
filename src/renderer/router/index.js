@@ -95,7 +95,7 @@ export const constantRouterMap = [
       component: () =>
         import('@/views/list/index'),
       meta: {
-        title: '初次审批',
+        title: '审批',
         icon: 'tiaochu'
       }
     },
