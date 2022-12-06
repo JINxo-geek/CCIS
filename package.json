@@ -60,7 +60,7 @@
     "js-cookie": "^2.2.1",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
-    "qs": "^6.8.0",
+    "qs": "^6.8.3",
     "vue": "2.5.10",
     "vue-axios": "2.1.1",
     "vue-electron": "^1.0.6",
